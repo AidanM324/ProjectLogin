@@ -1,6 +1,7 @@
 package ie.atu.projectlogin;
 
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login")
 public class LoginController {
 
-
+    @Autowired
+    private LoginService loginService;
     @PostMapping("/create")
     public ResponseEntity<String> create(@Valid @RequestBody Account account) {
-        //personService.savePerson(person);
-        //String details = paymentClient.makePayment(person);
-        System.out.println("Details from other service / " + details);
-        return new ResponseEntity<>("Person created successfully ", HttpStatus.OK);
+
+        loginService.createAccount(account);
+        return new ResponseEntity<>("Account created successfully ", HttpStatus.OK);
     }
 
 }

@@ -6,7 +6,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-    public void saveAccount(Account account){
+    private final AccountRepository accountRepo;
 
+    public LoginService(AccountRepository accountRepo) {
+        this.accountRepo = accountRepo;
+    }
+
+    public Account createAccount(Account account){
+        accountRepo.save(account);
+        return account;
     }
 }
