@@ -25,6 +25,9 @@ public class AccountDetails {
     private String userName;
 
     @NotBlank
+    private String customerId;
+
+    @NotBlank
     private String password;
 
     @NotBlank
