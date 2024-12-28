@@ -12,8 +12,8 @@ public class LoginService {
         this.accountRepo = accountRepo;
     }
 
-    public Account createAccount(Account account){
+    public void createAccount(Account account){
         accountRepo.save(account);
-        return account;
+
     }
 }

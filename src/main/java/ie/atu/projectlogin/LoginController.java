@@ -13,10 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login")
 public class LoginController {
 
+
     @Autowired
     private LoginService loginService;
+
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
+    }
+
     @PostMapping("/create")
-    public ResponseEntity<String> create(@Valid @RequestBody Account account) {
+    public ResponseEntity<String>create(@Valid @RequestBody Account account) {
 
         loginService.createAccount(account);
         return new ResponseEntity<>("Account created successfully ", HttpStatus.OK);
