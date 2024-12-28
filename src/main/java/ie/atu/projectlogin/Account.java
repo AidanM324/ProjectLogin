@@ -15,10 +15,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AccountDetails {
+public class Account{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
 
@@ -43,3 +43,4 @@ public class AccountDetails {
     @NotBlank
     private String location;
 }
+
